@@ -17,7 +17,7 @@ Plataforma de agendamento e gerenciamento para barbearias
 ## Layout
 
 <h3 align="center">
-  <img src="https://image.winudf.com/v2/image1/Y29tLmZ1c3JvZGFoMDYxLmFwcGdvYmFyYmVyX3NjcmVlbl8wXzE2MDc1NDc1NTFfMDk1/screen-0.jpg?fakeurl=1&type=.jpg">
+  <img width="300" src="https://image.winudf.com/v2/image1/Y29tLmZ1c3JvZGFoMDYxLmFwcGdvYmFyYmVyX3NjcmVlbl8wXzE2MDc1NDc1NTFfMDk1/screen-0.jpg?fakeurl=1&type=.jpg">
 </h3>
 
 ## :rocket: Sobre o projeto
