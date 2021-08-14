@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="300" align="center" src=".github/gostack.svg">
+    <img width="300" align="center" src="https://image.winudf.com/v2/image1/Y29tLmZ1c3JvZGFoMDYxLmFwcGdvYmFyYmVyX3NjcmVlbl8wXzE2MDc1NDc1NTFfMDk1/screen-0.jpg?fakeurl=1&type=.jpg">
 </p>
 
 <h1 align="center">

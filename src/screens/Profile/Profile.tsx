@@ -119,7 +119,9 @@ const SignUp: React.FC = () => {
           <UserAvatarButton onPress={handleSelectPostImage}>
             <UserAvatar
               source={{
-                uri: user.avatar_url,
+                uri: user.avatar_url
+                  ? user.avatar_url
+                  : 'https://i.pinimg.com/originals/2c/34/b0/2c34b0f8af859ae850abae729587ef2d.jpg',
               }}
             />
           </UserAvatarButton>
