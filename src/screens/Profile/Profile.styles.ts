@@ -7,6 +7,13 @@ export const Container = styled.View`
   padding: 0 30px;
   width: 100%;
 `;
+
+export const Header = styled.View`
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+`;
+
 export const Title = styled.Text`
   color: #f4ede8;
   font-size: 20px;
@@ -29,6 +36,8 @@ export const UserAvatar = styled.Image`
 `;
 
 export const BackButton = styled.TouchableOpacity`
-  align-self: flex-start;
+  margin-top: 14px;
+`;
+export const SignOutButton = styled.TouchableOpacity`
   margin-top: 14px;
 `;

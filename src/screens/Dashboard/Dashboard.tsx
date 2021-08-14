@@ -1,10 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useContext, useEffect, useState } from 'react';
-import { ToastAndroid, Text } from 'react-native';
+
 import Icon from 'react-native-vector-icons/Feather';
 import { AuthContext } from '../../context/AuthContext';
 import api from '../../services/api';
-import Button from '../../components/Button/Button';
 
 import {
   Container,
@@ -43,9 +42,6 @@ const Dashboard: React.FC = () => {
     }
     loadProviders();
   }, []);
-  const showToast = () => {
-    ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
-  };
 
   return (
     <Container>
@@ -58,7 +54,7 @@ const Dashboard: React.FC = () => {
 
         <ProfileButton
           onPress={() => {
-            navigate('Profile');
+            navigate('Profile' as never);
           }}
         >
           <UserAvatar
@@ -76,13 +72,15 @@ const Dashboard: React.FC = () => {
           return provider.id;
         }}
         ListHeaderComponent={
-          <ProvidersListTitle>Raspa Cuca</ProvidersListTitle>
+          <ProvidersListTitle>Disponiveis</ProvidersListTitle>
         }
         renderItem={({ item: provider }) => {
           return (
             <ProviderContainer
               onPress={() => {
-                navigate('CreateAppointment', { providerId: provider.id });
+                navigate('CreateAppointment' as never, {
+                  providerId: provider.id,
+                });
               }}
             >
               <ProviderAvatar

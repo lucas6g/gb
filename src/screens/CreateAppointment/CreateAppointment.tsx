@@ -105,7 +105,7 @@ const CreateAppointment: React.FC = () => {
     setSelectedProvider(providerId);
   }, []);
 
-  const handleDateChange = useCallback((event: any, date: Date | undefined) => {
+  const handleDateChange = useCallback((event, date: Date | undefined) => {
     if (Platform.OS === 'android') {
       // para quando clicar no ok remover da tela no android
       setShowDatePicker(false);
@@ -131,7 +131,7 @@ const CreateAppointment: React.FC = () => {
         date,
       });
 
-      navigate('AppointmentCreated', { date: date.getTime() });
+      navigate('AppointmentCreated' as never, { date: date.getTime() });
     } catch (error) {
       Alert.alert(
         'Erro ao criar o agendamento',

@@ -39,9 +39,7 @@ const SignIn: React.FC = () => {
     async (signFormData) => {
       try {
         await signIn(signFormData);
-        Alert.alert('Autenticado com sucessos');
       } catch (error) {
-
         Alert.alert(
           'Erro na Autenticação ',
           'cheque suas credenciais de acesso',
@@ -95,7 +93,10 @@ const SignIn: React.FC = () => {
             <Title>Faça seu login </Title>
             <Formik
               validationSchema={singInSchema}
-              initialValues={{ email: '', password: '' }}
+              initialValues={{
+                email: '',
+                password: '',
+              }}
               onSubmit={(values) => {
                 handleSignIn(values);
               }}
@@ -170,7 +171,7 @@ const SignIn: React.FC = () => {
         {!isKeyBoard ? (
           <CreateAcountButton
             onPress={() => {
-              navigation.navigate('SignUp');
+              navigation.navigate('SignUp' as never);
             }}
           >
             <Icon name="log-in" size={20} color="#ff9000" />

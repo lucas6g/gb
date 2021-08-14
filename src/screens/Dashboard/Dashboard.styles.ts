@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { FlatList } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IProvider } from './Dashboard';
 
 export const Container = styled.View`

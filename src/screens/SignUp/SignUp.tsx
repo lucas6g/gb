@@ -165,7 +165,7 @@ const SignUp: React.FC = () => {
         {!isKeyBoard ? (
           <BackToSignIn
             onPress={() => {
-              navigation.navigate('SignIn');
+              navigation.navigate('SignIn' as never);
             }}
           >
             <Icon name="arrow-left" size={20} color="#fff" />

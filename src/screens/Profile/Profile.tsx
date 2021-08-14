@@ -1,15 +1,16 @@
-import React, { useCallback, useContext, useState, useEffect } from 'react';
+import React, { useCallback, useContext } from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   Alert,
-  PermissionsAndroid,
 } from 'react-native';
 
-import CameraRoll, {
-  PhotoIdentifier,
-} from '@react-native-community/cameraroll';
+import {
+  launchImageLibrary,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ImageLibraryOptions,
+} from 'react-native-image-picker';
 
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -23,6 +24,8 @@ import {
   UserAvatar,
   BackButton,
   Form,
+  Header,
+  SignOutButton,
 } from './Profile.styles';
 
 import Input from '../../components/Input/Input';
@@ -34,8 +37,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const SignUp: React.FC = () => {
   const navigation = useNavigation();
-  const { user, updateUser } = useContext(AuthContext);
-  const [avatar, setAvatar] = useState<PhotoIdentifier[]>([]);
+  const { user, updateUser, signOut } = useContext(AuthContext);
 
   const handleChangeProfile = useCallback(
     async (signUpFormData) => {
@@ -50,30 +52,26 @@ const SignUp: React.FC = () => {
     [navigation, updateUser],
   );
 
-  async function hasAndroidPermission() {
-    const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+  const handleSelectPostImage = useCallback(() => {
+    launchImageLibrary(
+      { mediaType: 'photo' } as ImageLibraryOptions,
+      async (response) => {
+        if (!response.didCancel && response?.assets) {
+          const data = new FormData();
 
-    const hasPermission = await PermissionsAndroid.check(permission);
-    if (hasPermission) {
-      return true;
-    }
+          data.append('avatar', {
+            uri: response.assets[0].uri,
+            name: `${user.user_id}.jpeg`,
+            type: 'image/jpg',
+          });
 
-    const status = await PermissionsAndroid.request(permission);
-    return status === 'granted';
-  }
+          const updatedResponse = await api.patch('users/avatar', data);
 
-  const handleUpdateUserAvatar = useCallback(async () => {
-    CameraRoll.getPhotos({
-      first: 20,
-      assetType: 'Photos',
-    })
-      .then((r) => {
-        setAvatar(r.edges);
-      })
-      .catch((err) => {
-        // Error Loading Images
-      });
-  }, []);
+          updateUser(updatedResponse.data);
+        }
+      },
+    );
+  }, [updateUser, user.user_id]);
 
   const profileSchema = Yup.object().shape({
     name: Yup.string().required('O Campo nome é obrigatorio'),
@@ -101,17 +99,27 @@ const SignUp: React.FC = () => {
         contentContainerStyle={{ width: '100%', alignItems: 'center' }}
       >
         <Container>
-          <BackButton
-            onPress={() => {
-              navigation.goBack();
-            }}
-          >
-            <Icon name="chevron-left" size={24} color="#999591" />
-          </BackButton>
-          <UserAvatarButton onPress={handleUpdateUserAvatar}>
+          <Header>
+            <BackButton
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              <Icon name="chevron-left" size={24} color="#999591" />
+            </BackButton>
+            <SignOutButton
+              onPress={() => {
+                signOut();
+              }}
+            >
+              <Icon name="log-out" size={24} color="#999591" />
+            </SignOutButton>
+          </Header>
+
+          <UserAvatarButton onPress={handleSelectPostImage}>
             <UserAvatar
               source={{
-                uri: '',
+                uri: user.avatar_url,
               }}
             />
           </UserAvatarButton>
