@@ -71,7 +71,7 @@ e para barbeiros, permite gerenciar os horários marcados.</p>
 <strong>Com um emulador</strong>
 
 - Clone o repositório `git clone https://github.com/lucas6g/gobarber-mobile`
-- Vá até o diretório `cd gostack-gobarber-mobile`
+- Vá até o diretório `cd gobarber-mobile`
 - Execute `yarn` para instalar as dependências
 - Abra um dispositivo no seu emulador
 - Execute `yarn android` ou `yarn ios` de acordo o sistema operacional que você deseja rodar
@@ -83,10 +83,8 @@ Pronto! Feche e abra novamente o aplicativo.
 
 <i>Certifique-se que seu dispositivo esteja com o modo desenvolver ativado.</i>
 
-- Vá até o diretório `cd gostack-gobarber-mobile`
+- Vá até o diretório `cd gobarber-mobile`
 - Execute `yarn` para instalar as dependências
-- Copie o arquivo .env.example executando `cp .env.example .env` para linux ou mac e `copy .env.example .env` para windows
-- Abra o arquivo .env e preencha com suas variáveis de ambiente
 - Conecte seu dispositivo físico em um cabo USB
 - Execute `yarn android` ou `yarn ios` de acordo o sistema operacional que você deseja rodar
 - Execute `yarn start`
