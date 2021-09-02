@@ -49,7 +49,6 @@ e para barbeiros, permite gerenciar os horários marcados.</p>
 - [ESLint-Airbnb](https://eslint.org/), [Prettier](https://prettier.io/) e [EditorConfig](https://editorconfig.org/)
 - [Jest](https://jestjs.io/)
 - [Datefns](https://date-fns.org/)
-- [React Native Dotenv](https://github.com/zetachang/react-native-dotenv)
 - [React Native Image Picker](https://github.com/react-native-image-picker)
 
 ## :books: Guia de instalação e execução
