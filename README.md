@@ -30,7 +30,7 @@ e para barbeiros, permite gerenciar os horários marcados.</p>
 <p>Este é o repositório da versão mobile do projeto.</p>
 
 <ul>
-  <li>Para a api REST, <a href="https://github.com/lucas6g/gobarber-api">aqui</a>.</li>
+  <li>Para a api REST, <a href="https://github.com/lucas6g/gobarber-backend">aqui</a>.</li>
   <li>Para a versão web, <a href="https://github.com/lucas6g/gobarber-web">clique aqui</a>.</li>
 </ul>
 
